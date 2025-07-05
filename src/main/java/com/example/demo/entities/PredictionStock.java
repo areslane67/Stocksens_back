@@ -14,16 +14,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-
-public class Photo {
+public class PredictionStock {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
-	private Long id_Photo ;
-	private String Photo;
+	
+	private Long id_prediction;
+	private String date_prevu;
+	private String stock_prévu;
 	
 	@ManyToOne
 	private Produit produit;
-	
 }

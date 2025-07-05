@@ -18,26 +18,32 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Utilisateurs {
-	
+public class Produit {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	
-	private Long id;
-	private String img;
+	private Long id_Produit;
 	private String Nom;
-	private String Prenom;
-	private String Mail;
-	private String Adresse;
-	private String Mdp;
-	private String Ville;
-	private String Pays;
-	private String Tel;
-
-
-@JsonIgnore
-@OneToMany(mappedBy = "utilisateurs")
-private List<Commande>commande;
-
-
+	private String Descriptions;
+	private String prix;
+	private String Stock;
+	private String Taille;
+	private String Couleur;
+	private String Categorie;
+	private String Seuil_minimum;
+	private String Date_ajout;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "produit")
+	private List<LigneCommande>ligneCommande;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "produit")
+	private List<Photo>photo;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "produit")
+	private List<PredictionStock>predictionStock;
+	
 }
